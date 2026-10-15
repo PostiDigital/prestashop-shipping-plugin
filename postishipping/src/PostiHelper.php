@@ -78,6 +78,42 @@ class PostiHelper
     }
 
     /**
+     * Checks if order was paid with one of the payment modules configured as COD.
+     *
+     * @param \Order $order
+     *
+     * @return bool
+     */
+    public static function isCodOrder($order)
+    {
+        $codModulesRaw = (string) \Configuration::get('POSTISHIPPING_COD_MODULES');
+        if ($codModulesRaw === '') {
+            return false;
+        }
+
+        $codModules = array_map('trim', explode(',', $codModulesRaw));
+
+        return in_array($order->module, $codModules, true);
+    }
+
+    /**
+     * Returns COD (3101) specifiers data for given order.
+     *
+     * @param \Order $order
+     *
+     * @return array
+     */
+    public static function getCodSpec($order)
+    {
+        return [
+            'amount' => round((float) $order->total_paid_tax_incl, 2),
+            'account' => \Configuration::get('POSTISHIPPING_COD_ACCOUNT') ?: '',
+            'reference' => self::generateCodReference($order->id),
+            'codbic' => \Configuration::get('POSTISHIPPING_COD_CODBIC') ?: '',
+        ];
+    }
+
+    /**
      * Generates reference code for COD using supplied ID (usualy order iD).
      * ID must be min. 3 digits long for correct calculation,
      * if given id is less than 3 digits it will be padded with given symbol (DEFAULT: '0')

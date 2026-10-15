@@ -2199,24 +2199,11 @@ class PostiShipping extends CarrierModule
             return;
         }
 
-        $codModulesRaw = Configuration::get('POSTISHIPPING_COD_MODULES');
-        if (empty($codModulesRaw)) {
+        if (!PostiHelper::isCodOrder($order)) {
             return;
         }
 
-        $codModules = array_map('trim', explode(',', $codModulesRaw));
-        if (!in_array($order->module, $codModules, true)) {
-            return;
-        }
-
-        $codSpec = [
-            'amount' => round((float) $order->total_paid_tax_incl, 2),
-            'account' => Configuration::get('POSTISHIPPING_COD_ACCOUNT') ?: '',
-            'reference' => PostiHelper::generateCodReference($order->id),
-            'codbic' => Configuration::get('POSTISHIPPING_COD_CODBIC') ?: '',
-        ];
-
-        $cartMeta->addAdditionalServiceToAll(AdditionalServiceCod::CODE, $codSpec);
+        $cartMeta->addAdditionalServiceToAll(AdditionalServiceCod::CODE, PostiHelper::getCodSpec($order));
         $cartMetaRepository->update($cartMeta);
     }
 
@@ -2357,14 +2344,21 @@ class PostiShipping extends CarrierModule
             // If API call fails, skip filtering
         }
 
-        // Filter default additional services by what the service actually supports
+        // Filter default additional services by what the service actually supports.
+        // COD is kept regardless - it is always sent for COD orders and API validates it.
         if (!empty($supportedAdditionalServiceCodes)) {
             $defaultAdditionalServiceCodes = array_values(array_filter(
                 $defaultAdditionalServiceCodes,
                 function ($code) use ($supportedAdditionalServiceCodes) {
-                    return in_array((string) $code, $supportedAdditionalServiceCodes, true);
+                    return (string) $code === AdditionalServiceCod::CODE
+                        || in_array((string) $code, $supportedAdditionalServiceCodes, true);
                 }
             ));
+        }
+
+        // COD orders always get COD service at registration
+        if (PostiHelper::isCodOrder($order) && !in_array(AdditionalServiceCod::CODE, $defaultAdditionalServiceCodes)) {
+            $defaultAdditionalServiceCodes[] = AdditionalServiceCod::CODE;
         }
 
         if ($postiCarrier) {

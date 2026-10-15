@@ -18,6 +18,7 @@ use Posti\PrestaShop\Postishipping\Model\AdditionalServices\AdditionalServicePic
 use Posti\PrestaShop\Postishipping\Model\GenericAdditionalService;
 use Posti\PrestaShop\Postishipping\Model\ShippingServiceConfig;
 use Posti\PrestaShop\Postishipping\PostiApi;
+use Posti\PrestaShop\Postishipping\PostiHelper;
 use Posti\PrestaShop\Postishipping\Repository\PostishippingCarrierRepository;
 use Posti\PrestaShop\Postishipping\Repository\PostishippingCartMetaRepository;
 use Posti\PrestaShop\Postishipping\Repository\PostishippingManifestRepository;
@@ -517,15 +518,34 @@ class PostiOrderController extends AdminControllerCompat
             // If API call fails, skip filtering to avoid blocking registration
         }
 
-        // Filter additional services: only keep those supported by the selected shipping service
+        // Filter additional services: only keep those supported by the selected shipping service.
+        // COD is kept regardless - if service does not support it, API will reject the shipment.
         if (!empty($supportedAdditionalServiceCodes)) {
             $additionalServicesForShipment = array_filter(
                 $additionalServicesForShipment,
                 function ($svc) use ($supportedAdditionalServiceCodes) {
-                    return in_array($svc->getCode(), $supportedAdditionalServiceCodes, true);
+                    return $svc->getCode() === AdditionalServiceCod::CODE
+                        || in_array($svc->getCode(), $supportedAdditionalServiceCodes, true);
                 }
             );
             $additionalServicesForShipment = array_values($additionalServicesForShipment);
+        }
+
+        // COD orders must always be registered with COD service
+        if (PostiHelper::isCodOrder($order)) {
+            $hasCod = false;
+            foreach ($additionalServicesForShipment as $svc) {
+                if ($svc->getCode() === AdditionalServiceCod::CODE) {
+                    $hasCod = true;
+                    break;
+                }
+            }
+
+            if (!$hasCod) {
+                $codSpec = PostiHelper::getCodSpec($order);
+                $additionalServicesForShipment[] = GenericAdditionalService::getAdditionalServiceByCode(AdditionalServiceCod::CODE)
+                    ->setSpecifiersData($codSpec);
+            }
         }
 
         $shipmentData = new ShipmentData();

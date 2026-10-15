@@ -337,6 +337,11 @@ const POSTISHIPPING_ADMIN_ORDER = {
             } catch (e) { /* ignore */ }
         }
 
+        // COD is added even when service does not list it, so provide a fallback name
+        if (postishipping.codData && !serviceNames[postishipping.codData.serviceCode]) {
+            serviceNames[postishipping.codData.serviceCode] = 'Postiennakko';
+        }
+
         container.innerHTML = '';
         defaultCodes.forEach(function (code) {
             const div = document.createElement('div');
