@@ -1,0 +1,54 @@
+name: Deploy tag and release
+
+# Builds postishipping.zip from main and publishes a GitHub release tagged
+# with the module version from postishipping.php.
+#
+# The workflow does not push to main: merge/push develop into main manually
+# before running it. Only GITHUB_TOKEN is needed (tag + release creation).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Read module version
+        id: ver
+        run: |
+          VERSION=$(grep -oP "\\\$this->version = '\K[^']+" postishipping/postishipping.php)
+          if [ -z "$VERSION" ]; then
+            echo "::error::Could not read module version from postishipping/postishipping.php"
+            exit 1
+          fi
+          if git rev-parse -q --verify "refs/tags/v$VERSION" >/dev/null; then
+            echo "::error::Tag v$VERSION already exists. Bump the version in postishipping.php and push develop to main first."
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Build zip
+        run: ./create-release-zip.sh
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "v${{ steps.ver.outputs.version }}" postishipping.zip \
+            --target "${{ steps.ver.outputs.sha }}" \
+            --title "v${{ steps.ver.outputs.version }}" \
+            --generate-notes

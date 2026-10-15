@@ -1,0 +1,14 @@
+# Exclude dev files from production archives
+/postishipping/.php-cs-fixer.dist.php export-ignore
+/postishipping/tests/ export-ignore
+
+# Normalize all text files to LF
+* text=auto eol=lf
+
+# Images and binary formats
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.pdf binary
+*.zip binary

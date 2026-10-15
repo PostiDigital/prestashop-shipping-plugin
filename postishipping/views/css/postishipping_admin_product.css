@@ -1,0 +1,18 @@
+.posti-product-extra .posti-field {
+    margin-bottom: 10px;
+}
+.posti-product-extra .posti-field label {
+    font-weight: 600;
+    margin-bottom: 3px;
+    display: block;
+}
+.posti-product-extra .posti-field .small {
+    color: #999;
+    font-weight: normal;
+}
+.posti-product-extra .posti-field input[type="text"],
+.posti-product-extra .posti-field input[type="number"],
+.posti-product-extra .posti-field select {
+    max-width: 400px;
+    width: 100%;
+}

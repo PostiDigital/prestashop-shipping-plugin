@@ -1,0 +1,34 @@
+:root {
+    --posti-color-primary: #ff8000;
+    --posti-color-primary-contrast: #e87500;
+    --posti-color-white: #fff;
+    --posti-color-shark: #2a2b2d;
+}
+
+#subtab-AdminPostiShipping .material-icons.mi-posti {
+    font-size: 0;
+    display: inline-block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+#subtab-AdminPostiShipping .material-icons.mi-posti:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    -webkit-mask-image: url('/modules/postishipping/views/img/icon-simple.svg');
+    mask-image: url('/modules/postishipping/views/img/icon-simple.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+#subtab-AdminPostiShipping.link-active .material-icons.mi-posti:before {
+    background-color: var(--posti-color-primary);
+}
