@@ -1,0 +1,84 @@
+#postishipping-pickups .table thead th {
+    border-bottom-color: var(--posti-color-primary);
+}
+#postishipping-pickups .table-hover tbody tr .btn-primary {
+    background-color: var(--posti-color-primary);
+    border-color: var(--posti-color-primary);
+}
+#postishipping-pickups .table-hover tbody tr .btn-primary:hover {
+    background-color: var(--posti-color-white);
+    border-color: var(--posti-color-primary);
+    color: var(--posti-color-primary)
+}
+#postishipping-pickups .posti-pickups-filter .btn-primary {
+    background-color: var(--posti-color-primary);
+    border-color: var(--posti-color-primary);
+}
+#postishipping-pickups .posti-pickups-filter .btn-primary:hover {
+    background-color: var(--posti-color-white);
+    border-color: var(--posti-color-primary);
+    color: var(--posti-color-primary);
+}
+#postishipping-pickups .pagination .page-item.active .page-link {
+    color: var(--posti-color-primary);
+}
+#postishipping-pickups .table {
+    table-layout: fixed;
+    width: 100%;
+}
+#postishipping-pickups .posti-col-id {
+    width: 4.5%;
+}
+#postishipping-pickups .posti-col-status {
+    width: 7%;
+}
+#postishipping-pickups .posti-col-orders {
+    width: 45%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+#postishipping-pickups .table td:not(.posti-col-orders),
+#postishipping-pickups .table th:not(.posti-col-orders) {
+    white-space: nowrap;
+}
+#postishipping-pickups .table td.manifest-actions .manifest-action-text {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+#postishipping-pickups .posti-btn-cancel {
+    background: transparent;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+    vertical-align: middle;
+}
+#postishipping-pickups .posti-btn-cancel .material-icons {
+    font-size: 18px;
+    vertical-align: middle;
+}
+#postishipping-pickups .posti-btn-cancel:hover {
+    color: #a71d2a;
+}
+
+/* PS 1.7.x styles */
+#postishipping-pickups.posti-pstheme-classic .table-hover tbody tr a {
+    color: var(--posti-color-primary);
+}
+#postishipping-pickups.posti-pstheme-classic .table-hover tbody tr:hover {
+    background-color: var(--posti-color-primary-contrast);
+    color: var(--posti-color-white);
+    cursor: auto;
+}
+#postishipping-pickups.posti-pstheme-classic .table-hover tbody tr:hover a {
+    color: var(--posti-color-white);
+}
+
+/* PS 8.x styles */
+#postishipping-pickups.posti-pstheme-modern .table-hover tbody tr:hover {
+    background-color: #fff3e0;
+    cursor: auto;
+    color: #363a41;
+}

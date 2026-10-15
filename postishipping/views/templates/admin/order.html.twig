@@ -1,0 +1,212 @@
+{% set postiAccess = postiAccess|default({view: true, add: true, edit: true, delete: true}) %}
+<form data-posti-form data-posti-registered="{{  cartMeta.isRegistered()|json_encode }}">
+<div class="card-body clearfix">
+    <div class="row">
+      <div class="col-sm posti-errors mt-2 mb-1" style="display:none;">
+          <div class="alert alert-danger">
+              <p class="m-0"></p>
+          </div>
+      </div>
+      <div class="col-sm posti-success mt-2 mb-1" style="display:none;">
+          <div class="alert alert-success">
+              <p class="m-0"></p>
+          </div>
+      </div>
+    </div>
+    {% set registrations = cartMeta.getRegistrations() %}
+    {% if registrations|length > 0 %}
+    <div class="row">
+        <div class="col-sm mb-1">
+            <h4>{{ 'Shipping labels'|trans({}, 'Modules.Postishipping.Admin') }}</h4>
+            {% for reg in registrations %}
+            <div class="posti-label-row posti-shipping-label d-flex justify-content-between align-items-center posti-registration-row" data-posti-tracking="{{ reg.trackingCode }}">
+                <div>
+                    <p class="m-0">
+                        <b>{{ reg.trackingCode }}</b>
+                    </p>
+                    <p class="m-0">
+                        <span class="text-muted font-italic">{{ reg.timestamp is defined and reg.timestamp ? reg.timestamp|date('Y-m-d H:i:s') : '-' }}</span>
+                    </p>
+                    <p class="m-0">
+                    {{ 'Status:'|trans({}, 'Modules.Postishipping.Admin') }} <span class="posti-label-status">{{ reg.status is defined and reg.status ? reg.status : 'Unknown'|trans({}, 'Modules.Postishipping.Admin') }}</span>
+                    </p>
+                </div>
+                <div class="posti-reg-actions">
+                    <button type="button" class="btn btn-sm btn-success" data-postishipping-print-label="{{ reg.trackingCode }}">
+                        {{ 'Print label'|trans({}, 'Modules.Postishipping.Admin') }}
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" data-postishipping-refresh-label="{{ reg.trackingCode }}">
+                        {{ 'Refresh'|trans({}, 'Modules.Postishipping.Admin') }}
+                    </button>
+                    {% if postiAccess.add %}
+                    <button type="button" class="btn btn-sm btn-primary" data-postishipping-pickup-label="{{ reg.trackingCode }}">
+                        {% if reg.trackingCode in pickupTrackingCodes|default([]) %}<span style="color: inherit" class="posti-pickup-check">&#10003;</span> {% endif %}{{ 'To pickup'|trans({}, 'Modules.Postishipping.Admin') }}
+                    </button>
+                    {% endif %}
+                    {% if postiAccess.delete %}
+                    <button type="button" class="btn btn-sm btn-danger" data-postishipping-delete-label="{{ reg.trackingCode }}">
+                        {{ 'Delete'|trans({}, 'Modules.Postishipping.Admin') }}
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% set returnRegistrations = cartMeta.getReturnRegistrations() %}
+    {% if returnRegistrations|length > 0 or registrations|length > 0 %}
+    <div class="row">
+        <div class="col-sm mb-3">
+            <h4>{{ 'Return labels'|trans({}, 'Modules.Postishipping.Admin') }}</h4>
+            {% for ret in returnRegistrations %}
+            <div class="posti-label-row posti-return-label d-flex justify-content-between align-items-center posti-return-registration-row" data-posti-return-tracking="{{ ret.trackingCode }}">
+                <div>
+                    <p class="m-0">
+                        <b>{{ ret.trackingCode }}</b>
+                    </p>
+                    <p class="m-0">
+                        <span class="text-muted font-italic">{{ ret.timestamp is defined and ret.timestamp ? ret.timestamp|date('Y-m-d H:i:s') : '-' }}</span>
+                    </p>
+                </div>
+                <div class="posti-reg-actions">
+                    <button type="button" class="btn btn-sm btn-success" data-postishipping-print-label="{{ ret.trackingCode }}">
+                        {{ 'Print label'|trans({}, 'Modules.Postishipping.Admin') }}
+                    </button>
+                    {% if postiAccess.delete %}
+                    <button type="button" class="btn btn-sm btn-danger" data-postishipping-delete-return-label="{{ ret.trackingCode }}">
+                        {{ 'Delete'|trans({}, 'Modules.Postishipping.Admin') }}
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            {% if registrations|length > 0 and postiAccess.add %}
+            <div class="">
+                <button type="button" class="btn btn-primary btn-sm" data-postishipping-register-return>
+                    {{ 'Create return label'|trans({}, 'Modules.Postishipping.Admin') }}
+                </button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {# === Default Registration Info (read-only, used by "Register" button) === #}
+    <div class="border-bottom pb-2" data-postishipping-default-section>
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <h4 class="border-bottom mb-2 pb-2">
+                {{ 'Default Registration'|trans({}, 'Modules.Postishipping.Admin') }}
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 border-right">
+            <h4>{{ 'Service:'|trans({}, 'Modules.Postishipping.Admin') }}</h4>
+            <p class="" title="{{ defaultRegistration.serviceCode|raw }}">{{ defaultRegistration.serviceName|raw }}</p>
+            {% if defaultRegistration.pickupPointInfo is not empty %}
+            <h4>{{ 'Pickup Point:'|trans({}, 'Modules.Postishipping.Admin') }}</h4>
+            <p class="posti-default-pp">
+                {{ defaultRegistration.pickupPointInfo.name|default('') }}</br>
+                <span class="text-muted">{{ defaultRegistration.pickupPointInfo.street_address|default('') }}, {{ defaultRegistration.pickupPointInfo.postcode|default('') }}, {{ defaultRegistration.pickupPointInfo.city|default('') }}</span>
+            </p>
+            {% endif %}
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <h4>{{ 'Additional services:'|trans({}, 'Modules.Postishipping.Admin') }}</h4>
+            <div data-postishipping-default-additional-services>
+                <span class="text-muted font-italic">{{ 'Carrier defaults'|trans({}, 'Modules.Postishipping.Admin') }}</span>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    {# === Custom Registration (editable, used by "Register custom" button) === #}
+    <div class="border-bottom pb-2" data-postishipping-custom-section style="display:none;">
+    <div class="row mt-4">
+        <div class="col-sm-12">
+            <h4 class="border-bottom mb-2 pb-2">
+                {{ 'Custom Registration'|trans({}, 'Modules.Postishipping.Admin') }}
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 border-right">
+            <h4>{{ 'Posti Service:'|trans({}, 'Modules.Postishipping.Admin') }}</h4>
+            <select class="form-control mb-2" name="posti_service_code" data-postishipping-service-selector>
+                <option value="{{ shippingMethod.getCode()|raw }}" selected>{{ shippingMethod.getName()|raw }} ({{ shippingMethod.getCode()|raw }})</option>
+            </select>
+            <button type="button" class="btn btn-sm btn-outline-primary mb-2" data-postishipping-load-services>
+                {{ 'Load all services'|trans({}, 'Modules.Postishipping.Admin') }}
+            </button>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <h4>{{ 'Additional services:'|trans({}, 'Modules.Postishipping.Admin') }}</h4>
+            {% if shippingMethod.getAdditionalServices() is empty %}
+                {{ 'Current posti service appears to not have additional services'|trans({}, 'Modules.Postishipping.Admin') }}
+            {% else %}
+                <div data-postishipping-additional-services></div>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+
+    {# === Shipment products (shared, always visible) === #}
+    {% if orderProducts|length > 0 %}
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <h4>{{ 'Shipment products:'|trans({}, 'Modules.Postishipping.Admin') }}</h4>
+            <p class="text-muted small mb-2">{{ 'Set quantity to 0 to exclude a product. Changes apply directly when registering.'|trans({}, 'Modules.Postishipping.Admin') }}</p>
+            <table class="table table-sm table-bordered" data-postishipping-products-table>
+                <thead>
+                    <tr>
+                        <th>{{ 'Product'|trans({}, 'Modules.Postishipping.Admin') }}</th>
+                        <th>{{ 'Reference'|trans({}, 'Modules.Postishipping.Admin') }}</th>
+                        <th style="width: 100px;">{{ 'Quantity'|trans({}, 'Modules.Postishipping.Admin') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in orderProducts %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.reference }}</td>
+                        <td>
+                            <input type="number"
+                                class="form-control form-control-sm"
+                                name="posti_custom_product[{{ product.id_product }}_{{ product.id_product_attribute }}]"
+                                value="{{ product.quantity }}"
+                                min="0"
+                                max="{{ product.quantity }}"
+                                data-max-qty="{{ product.quantity }}">
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<div class="card-footer posti-footer">
+    {% if postiAccess.add %}
+    <span data-postishipping-default-buttons>
+        <button type="button" class="btn btn-success" data-postishipping-register>
+            {{ 'Create'|trans({}, 'Modules.Postishipping.Admin') }}
+        </button>
+    </span>
+    <span data-postishipping-custom-buttons style="display:none;">
+        <button type="button" class="btn btn-primary" data-postishipping-save-meta disabled>
+            {{ 'Update'|trans({}, 'Modules.Postishipping.Admin') }}
+        </button>
+        <button type="button" class="btn btn-success" data-postishipping-register-custom>
+            {{ 'Create'|trans({}, 'Modules.Postishipping.Admin') }}
+        </button>
+    </span>
+    <button type="button" class="btn btn-outline-secondary ml-2" data-postishipping-toggle-mode>
+        {{ 'Custom shipping...'|trans({}, 'Modules.Postishipping.Admin') }}
+    </button>
+    {% endif %}
+</div>
+</form>

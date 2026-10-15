@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="fi" datatype="plaintext" original="modules/postishipping">
+    <body>
+      <trans-unit id="8c7cf34fc429a71b11275c163f26ec1d">
+        <source>Filter by address</source>
+        <target>Suodata osoitteen mukaan</target>
+      </trans-unit>
+      <trans-unit id="fe43c5862ef5773ba70f6cfb0e3e4789">
+        <source>Find pickup points</source>
+        <target>Etsi noutopisteitä</target>
+      </trans-unit>
+      <trans-unit id="1bc4c1d4fac929205d93df02fc79bf16">
+        <source>Selected pickup point</source>
+        <target>Valittu noutopiste</target>
+      </trans-unit>
+      <trans-unit id="3a95959ab6a0391c92dd60ec281c0f40">
+        <source>-- No pickup point: Send to the street address --</source>
+        <target>-- Ei noutopistettä: Lähetä osoitteeseen --</target>
+      </trans-unit>
+      <trans-unit id="9b63e6e27d45a85cd3cf8a7ea50bec41">
+        <source>Unfortunately there are no pickup points available, try searching different address</source>
+        <target>Valitettavasti noutopisteitä ei ole saatavilla, kokeile hakea eri osoitteella</target>
+      </trans-unit>
+      <trans-unit id="9d445da135e206a6ba57e8eafbab2615">
+        <source>Not a valid address search</source>
+        <target>Virheellinen osoitehaku</target>
+      </trans-unit>
+      <trans-unit id="55a4bfd4f08163ae456b19eae3c2ade7">
+        <source>Invalid provider name</source>
+        <target>Virheellinen palveluntarjoajan nimi</target>
+      </trans-unit>
+      <trans-unit id="b9f132d8943bc57491601a3c73e3e5bc">
+        <source>CartMeta not found</source>
+        <target>Ostoskorin metatietoja ei löytynyt</target>
+      </trans-unit>
+      <trans-unit id="d218b57c8a5fe2dbadafa8125b75ba69">
+        <source>Select a Pickup Point</source>
+        <target>Valitse noutopiste</target>
+      </trans-unit>
+      <trans-unit id="d7c99bd28e28be774edf9d5a922f9960">
+        <source>The pickup point you have chosen is a private locker. You will need a PIN code to access it. Do you want to continue?</source>
+        <target>Valitsemasi noutopiste on yksityinen pakettilokero. Tarvitset PIN-koodin päästäksesi siihen. Haluatko jatkaa?</target>
+      </trans-unit>
+      <trans-unit id="d4fa366d4709c308000b0b90ecd1cec2">
+        <source>Id cart is not valid</source>
+        <target>Ostoskorin ID ei ole kelvollinen</target>
+      </trans-unit>
+      <trans-unit id="4e5696a0792b88af51c46c4f67e59e18">
+        <source>Pickup point:</source>
+        <target>Noutopiste:</target>
+      </trans-unit>
+      <trans-unit id="3fe89a60068f454bfddd87fe5654e8fa">
+        <source>Failed to find postishipping cart meta data</source>
+        <target>Postishipping-ostoskorin metatietoja ei löytynyt</target>
+      </trans-unit>
+      <trans-unit id="446b416d535ed3f547fcd653dc11d49c">
+        <source>Invalid request</source>
+        <target>Virheellinen pyyntö</target>
+      </trans-unit>
+      <trans-unit id="a47500bb69234673eb0b04e3cef478e8">
+        <source>Something went wrong while trying to get Pickup Points</source>
+        <target>Jokin meni pieleen yritettäessä hakea noutopisteitä</target>
+      </trans-unit>
+      <trans-unit id="44cad029e77921821b29216e5d8fa081">
+        <source>Something went wrong while trying to clear Pickup Point</source>
+        <target>Jokin meni pieleen yritettäessä tyhjentää noutopiste</target>
+      </trans-unit>
+      <trans-unit id="aea0875a05b0edf83207e85788a9ce8b">
+        <source>Something went wrong while trying to save Pickup Point</source>
+        <target>Jokin meni pieleen yritettäessä tallentaa noutopiste</target>
+      </trans-unit>
+      <trans-unit id="db26e10564e958809d798e8048fcbc0a">
+        <source>Invalid security token</source>
+        <target>Virheellinen suojaustunniste</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

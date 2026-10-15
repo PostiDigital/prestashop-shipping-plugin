@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="fi" datatype="plaintext" original="modules/postishipping">
+    <body>
+      <trans-unit id="71feef1df350b7fe942059386ce9f6ba">
+        <source>Posti Shipping</source>
+        <target>Posti-toimitus</target>
+      </trans-unit>
+      <trans-unit id="43ec604a4d3094b38415af59a2dab74d">
+        <source>Posti shipping service for Prestashop</source>
+        <target>Posti-toimituspalvelu Prestashop-järjestelmälle</target>
+      </trans-unit>
+      <trans-unit id="de6ac942acd7247dc05112ea53231f8f">
+        <source>Posti: Create new shipping labels</source>
+        <target>Posti: Luo uudet lähetystarrat</target>
+      </trans-unit>
+      <trans-unit id="86b4e4515f4458ad588083d497b67fb8">
+        <source>Posti: Create and fetch shipping labels</source>
+        <target>Posti: Luo ja hae lähetystarrat</target>
+      </trans-unit>
+      <trans-unit id="5867e800ace6800c3c10978c8cc5caac">
+        <source>Posti: Create custom shipping labels</source>
+        <target>Posti: Luo mukautetut lähetystarrat</target>
+      </trans-unit>
+      <trans-unit id="ac35508fb472abcb3c6225c4162348d1">
+        <source>Posti: Download all shipping labels</source>
+        <target>Posti: Lataa kaikki lähetystarrat</target>
+      </trans-unit>
+      <trans-unit id="7a7ec06f779bb99e176e1e0943c1b58f">
+        <source>Posti: Add shipping labels to pickup</source>
+        <target>Posti: Lisää lähetystarrat noutoon</target>
+      </trans-unit>
+      <trans-unit id="1d13f5970032b45327add3c337ac82ee">
+        <source>API configuration</source>
+        <target>API-asetukset</target>
+      </trans-unit>
+      <trans-unit id="d876ff8da67c3731ae25d8335a4168b4">
+        <source>API Key</source>
+        <target>API-avain</target>
+      </trans-unit>
+      <trans-unit id="1ddec0f92f297e937bdf409977df0c02">
+        <source>API Secret</source>
+        <target>API-salaisuus</target>
+      </trans-unit>
+      <trans-unit id="c24dccbd3a5d722d922ddd53151bdc82">
+        <source>Failed to validate credentials, please check your API key and secret</source>
+        <target>Tunnistetietojen vahvistus epäonnistui, tarkista API-avain ja salaisuus</target>
+      </trans-unit>
+      <trans-unit id="97c6cd2205e0c00a18bc7eec87dfed63">
+        <source>Sender information</source>
+        <target>Lähettäjän tiedot</target>
+      </trans-unit>
+      <trans-unit id="90ed58883831551ef960da4f7cde1240">
+        <source>Sender name</source>
+        <target>Lähettäjän nimi</target>
+      </trans-unit>
+      <trans-unit id="7d06182c98480873fd25664fb3f7a698">
+        <source>Sender address</source>
+        <target>Lähettäjän osoite</target>
+      </trans-unit>
+      <trans-unit id="c7f52123ce360883ebde8fef87a6c166">
+        <source>Sender postal code</source>
+        <target>Lähettäjän postinumero</target>
+      </trans-unit>
+      <trans-unit id="c27ea7e02a5d89e054de6c3d0cea519f">
+        <source>Sender city</source>
+        <target>Lähettäjän kaupunki</target>
+      </trans-unit>
+      <trans-unit id="c8291152acdcd94197f9a91da4657e44">
+        <source>Sender country</source>
+        <target>Lähettäjän maa</target>
+      </trans-unit>
+      <trans-unit id="d552a284b43330ea4a22ab71bc0627dc">
+        <source>Sender phone</source>
+        <target>Lähettäjän puhelin</target>
+      </trans-unit>
+      <trans-unit id="31df4171f2ebec0b6f84d0cc0b91722a">
+        <source>Sender email</source>
+        <target>Lähettäjän sähköposti</target>
+      </trans-unit>
+      <trans-unit id="f427fc8c9a39b88061c2b8ffce2a93a6">
+        <source>Info-code for shipments</source>
+        <target>Lähetysten infokoodi</target>
+      </trans-unit>
+      <trans-unit id="299d5952160b0d2997ca7102691cf05b">
+        <source>Info-code length must be 15 characters or less</source>
+        <target>Infokoodin pituus saa olla enintään 15 merkkiä</target>
+      </trans-unit>
+      <trans-unit id="e36bafbd33c9e49ee82e95e5dea7698a">
+        <source>Cash on delivery (COD) configuration</source>
+        <target>Postiennakkoasetukset (COD)</target>
+      </trans-unit>
+      <trans-unit id="176df234cc8d6054bfc3e9048efaf98c">
+        <source>Bank account (IBAN)</source>
+        <target>Pankkitili (IBAN)</target>
+      </trans-unit>
+      <trans-unit id="6c88c385f5042c30041757b37ac74544">
+        <source>BIC code</source>
+        <target>BIC-koodi</target>
+      </trans-unit>
+      <trans-unit id="814b691f27f5022a1a73b5131fd82218">
+        <source>Bic code</source>
+        <target>BIC-koodi</target>
+      </trans-unit>
+      <trans-unit id="768acd839df02b0c70f2bcec345d2da5">
+        <source>COD modules</source>
+        <target>Postiennakkomoduulit</target>
+      </trans-unit>
+      <trans-unit id="0b3adb75e6c62347d885be4d54a05e6b">
+        <source>Select payment modules that are for COD</source>
+        <target>Valitse postiennakkoa käyttävät maksutapamoduulit</target>
+      </trans-unit>
+      <trans-unit id="c82549733f07d617adb59ffa9cce5ba4">
+        <source>Checkout configuration</source>
+        <target>Kassalle-asetukset</target>
+      </trans-unit>
+      <trans-unit id="caf1302ebc7dd4895b2d9ed83174353c">
+        <source>Pickup point search limit</source>
+        <target>Noutopisteiden hakuraja</target>
+      </trans-unit>
+      <trans-unit id="c33e28aef493017cd2d1d0ff76979513">
+        <source>Limit the amount of nearest pickup points shown</source>
+        <target>Rajoita näytettävien lähimpien noutopisteiden määrää</target>
+      </trans-unit>
+      <trans-unit id="af6e324e80b9fe239412e6e22cfe4279">
+        <source>Show pickup points as</source>
+        <target>Näytä noutopisteet muodossa</target>
+      </trans-unit>
+      <trans-unit id="b61541208db7fa7dba42c85224405911">
+        <source>Menu</source>
+        <target>Valikko</target>
+      </trans-unit>
+      <trans-unit id="4ee29ca12c7d126654bd0e5275de6135">
+        <source>List</source>
+        <target>Lista</target>
+      </trans-unit>
+      <trans-unit id="f1f3d2184a23d0086b8173912fe8919d">
+        <source>Pickup points type</source>
+        <target>Noutopisteiden tyyppi</target>
+      </trans-unit>
+      <trans-unit id="0435d9ee9d1cde896d8d867d04b7a7b4">
+        <source>Choose which type of pickup points will be displayed in the list of pickup points</source>
+        <target>Valitse, minkä tyyppiset noutopisteet näytetään noutopisteluettelossa</target>
+      </trans-unit>
+      <trans-unit id="2e4fe7f050bbca6c91395fa64655907b">
+        <source>Private lockers</source>
+        <target>Yksityiset pakettilokerot</target>
+      </trans-unit>
+      <trans-unit id="f4dae5b7e9827e76dd6a2205191af8a9">
+        <source>Outdoor lockers</source>
+        <target>Ulkopakettilokerot</target>
+      </trans-unit>
+      <trans-unit id="107970daebb3180a22145e3eb85645d8">
+        <source>Parcel lockers</source>
+        <target>Pakettilokerot</target>
+      </trans-unit>
+      <trans-unit id="485115c849e2941a8608587cab909927">
+        <source>Pickup points</source>
+        <target>Noutopisteet</target>
+      </trans-unit>
+      <trans-unit id="43f7f78dd2c45e169b7c3eb12064e83a">
+        <source>Shipment registration configuration</source>
+        <target>Lähetyksen rekisteröintiasetukset</target>
+      </trans-unit>
+      <trans-unit id="5f7edd4930c491f664cd42702030df99">
+        <source>Shipping label size</source>
+        <target>Lähetystarran koko</target>
+      </trans-unit>
+      <trans-unit id="752e47dfa7dc5e931750fbcfc4d7cdb1">
+        <source>Ignore product weight</source>
+        <target>Ohita tuotteen paino</target>
+      </trans-unit>
+      <trans-unit id="d226d6cac9565ebbda222a9437a48278">
+        <source>Ignore the specified product weight and assign a weight of 1 kg to each product unit</source>
+        <target>Ohita määritetty tuotteen paino ja aseta 1 kg paino jokaiselle tuoteyksikölle</target>
+      </trans-unit>
+      <trans-unit id="a542cf25ded09863d0fdb46a820e0ab3">
+        <source>Exclude products without HS code from CN23</source>
+        <target>Jätä tuotteet ilman HS-koodia pois CN23:sta</target>
+      </trans-unit>
+      <trans-unit id="89bd348993b5479209b1fb388558eaf4">
+        <source>Exclude products without HS tariff code from the CN23 customs document</source>
+        <target>Jätä tuotteet ilman HS-tullikoodia pois CN23-tulliasiakirjasta</target>
+      </trans-unit>
+      <trans-unit id="640d98ce445e4aa2883ac0bb5e0bbccb">
+        <source>Express freight pallet type</source>
+        <target>Pikarahdin lavatyyppi</target>
+      </trans-unit>
+      <trans-unit id="28213dbbb9f56c9ab10a435f18ea2c5c">
+        <source>Label registered Order status</source>
+        <target>Tilauksen tila tarran rekisteröinnin jälkeen</target>
+      </trans-unit>
+      <trans-unit id="9c1372ec2982db78924e19487cf43c05">
+        <source>Order status to set after registering label. Select "--" to not change status.</source>
+        <target>Tilauksen tila tarran rekisteröinnin jälkeen. Valitse „--", jos tilaa ei muuteta.</target>
+      </trans-unit>
+      <trans-unit id="93cba07454f06a4a960172bbd6e2a435">
+        <source>Yes</source>
+        <target>Kyllä</target>
+      </trans-unit>
+      <trans-unit id="bafd7322c6e97d25b6299b5d6fe8920b">
+        <source>No</source>
+        <target>Ei</target>
+      </trans-unit>
+      <trans-unit id="de99b3e1916bf33a93123455afaff416">
+        <source>Pickup configuration</source>
+        <target>Noudon asetukset</target>
+      </trans-unit>
+      <trans-unit id="6a0a5dcabe633b01ed94621dd5775275">
+        <source>Pickup Sender ID</source>
+        <target>Noudon lähettäjä-ID</target>
+      </trans-unit>
+      <trans-unit id="022ad35e29d598ff7c3abef0749c1a4f">
+        <source>Sender ID for courier pickup orders (POSTRA XML)</source>
+        <target>Lähettäjä-ID kuriirin noutotilauksille (POSTRA XML)</target>
+      </trans-unit>
+      <trans-unit id="108b8ab9b0cf9de8646ff3ffaa2ff129">
+        <source>Pickup SAP Customer ID</source>
+        <target>Noudon SAP-asiakas-ID</target>
+      </trans-unit>
+      <trans-unit id="ea66aaee0c78687f121ee07346b1ef36">
+        <source>SAP Customer account ID for courier pickup orders</source>
+        <target>SAP-asiakastilin ID kuriirin noutotilauksille</target>
+      </trans-unit>
+      <trans-unit id="8171d6cec7484ce25962f7255ede3258">
+        <source>Pickup SAP Invoice ID</source>
+        <target>Noudon SAP-lasku-ID</target>
+      </trans-unit>
+      <trans-unit id="136ce840b7ba75bffae8712e49f9334f">
+        <source>SAP Invoice account ID for courier pickup orders</source>
+        <target>SAP-laskutilin ID kuriirin noutotilauksille</target>
+      </trans-unit>
+      <trans-unit id="53cbd6a9797002f0af57d5f4f4b32015">
+        <source>Add additional text on labels</source>
+        <target>Lisää lisäteksti tarroihin</target>
+      </trans-unit>
+      <trans-unit id="9a39ea73b64b0baa7051565be0127953">
+        <source>Click on a shortcode to insert it into the field:</source>
+        <target>Napsauta lyhytkoodia lisätäksesi sen kenttään:</target>
+      </trans-unit>
+      <trans-unit id="d79cf3f429596f77db95c65074663a54">
+        <source>Order ID</source>
+        <target>Tilaus-ID</target>
+      </trans-unit>
+      <trans-unit id="4049d979b8e6b7d78194e96c3208a5a5">
+        <source>Order number</source>
+        <target>Tilausnumero</target>
+      </trans-unit>
+      <trans-unit id="d505e651b2a69330a46db995ed98c243">
+        <source>Order note</source>
+        <target>Tilauksen huomautus</target>
+      </trans-unit>
+      <trans-unit id="ebde08b0440b05b1b888cfd96a1348a9">
+        <source>Product names</source>
+        <target>Tuotteiden nimet</target>
+      </trans-unit>
+      <trans-unit id="967a78cacb47e535bb18e945cc0efca2">
+        <source>Product names with quantity</source>
+        <target>Tuotteiden nimet ja määrä</target>
+      </trans-unit>
+      <trans-unit id="b89232493c9213ec031ac31f14029f72">
+        <source>Product SKU codes</source>
+        <target>Tuotteiden SKU-koodit</target>
+      </trans-unit>
+      <trans-unit id="88720adc6ae9f3d6371b7b47529539b3">
+        <source>Product SKU codes with quantity</source>
+        <target>Tuotteiden SKU-koodit ja määrä</target>
+      </trans-unit>
+      <trans-unit id="193927ea89709b888d6746c58c6aa933">
+        <source>Other configuration</source>
+        <target>Muut asetukset</target>
+      </trans-unit>
+      <trans-unit id="95defdb54f121d540bd5152bd99fb0fe">
+        <source>Delete module data</source>
+        <target>Poista moduulin tiedot</target>
+      </trans-unit>
+      <trans-unit id="6c1d1a70c74a3b7e93fd7b009e7d6bf8">
+        <source>Delete all module data when the module is uninstalled</source>
+        <target>Poista kaikki moduulin tiedot moduulin asennuksen poiston yhteydessä</target>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354">
+        <source>Save</source>
+        <target>Tallenna</target>
+      </trans-unit>
+      <trans-unit id="c888438d14855d7d96a2724ee9c306bd">
+        <source>Settings updated</source>
+        <target>Asetukset päivitetty</target>
+      </trans-unit>
+      <trans-unit id="d6e05eff8637a0a8c198eca3b16ce6ac">
+        <source>Module updates</source>
+        <target>Moduulin päivitykset</target>
+      </trans-unit>
+      <trans-unit id="6adac9155e2a3cf1800f00dc3ddd7602">
+        <source>Failed to check for module updates. Please try again later.</source>
+        <target>Moduulipäivitysten tarkistus epäonnistui. Yritä myöhemmin uudelleen.</target>
+      </trans-unit>
+      <trans-unit id="9a03f5586f6bd77828e7f04d79203774">
+        <source>A new version %s is available! (current: %s)</source>
+        <target>Uusi versio %s on saatavilla! (nykyinen: %s)</target>
+      </trans-unit>
+      <trans-unit id="e88327bfa1d300f2e162c99d82f0bb9f">
+        <source>Are you sure you want to update the module?</source>
+        <target>Haluatko varmasti päivittää moduulin?</target>
+      </trans-unit>
+      <trans-unit id="b25eaa475d727fc0fa796818bec122ab">
+        <source>Update to %s</source>
+        <target>Päivitä versioon %s</target>
+      </trans-unit>
+      <trans-unit id="c956ab730b3271dcefa2bf682e130276">
+        <source>Module updated successfully to version %s.</source>
+        <target>Moduuli päivitetty onnistuneesti versioon %s.</target>
+      </trans-unit>
+      <trans-unit id="e2d3f4d0bc8bd580693f72dc2d1c8e04">
+        <source>The "vendor" directory is missing. Please run "composer install" in the module directory or re-upload the module with all dependencies.</source>
+        <target>„vendor"-hakemisto puuttuu. Suorita „composer install" moduulin hakemistossa tai lataa moduuli uudelleen kaikkien riippuvuuksien kanssa.</target>
+      </trans-unit>
+      <trans-unit id="45076711517499f8fbe47f793c535e61">
+        <source>Module parameters have been moved to the %tab_name% tab.</source>
+        <target>Moduulin parametrit on siirretty %tab_name%-välilehdelle.</target>
+      </trans-unit>
+      <trans-unit id="8763bf04dcfb6f9730c495ea66259ac3">
+        <source>Add New Carrier</source>
+        <target>Lisää uusi kuljetusyritys</target>
+      </trans-unit>
+      <trans-unit id="34f4987c5e1e0ac0af203ef13170b90c">
+        <source>Posti Carriers</source>
+        <target>Posti-kuljetusyritykset</target>
+      </trans-unit>
+      <trans-unit id="d7b3954e511d55c01cf5cb4af36bf9c2">
+        <source>PS Carrier ID</source>
+        <target>PS-kuljetusyrityksen ID</target>
+      </trans-unit>
+      <trans-unit id="67b0be04ed84689e4d8e75b2a023a38d">
+        <source>Posti Service ID</source>
+        <target>Posti-palvelun ID</target>
+      </trans-unit>
+      <trans-unit id="daabb18e36c55d4b75c5ac7d38c5f31d">
+        <source>Failed to create Posti carrier: %error%</source>
+        <target>Posti-kuljetusyrityksen luonti epäonnistui: %error%</target>
+      </trans-unit>
+      <trans-unit id="ae1eb1b06872434e5f32aed77ce4be10">
+        <source>Could not save Posti carrier</source>
+        <target>Posti-kuljetusyrityksen tallennus epäonnistui</target>
+      </trans-unit>
+      <trans-unit id="3c77cf1655987aa757b21bc99fdf0a36">
+        <source>Posti carrier for deletion not found</source>
+        <target>Poistettavaa Posti-kuljetusyritystä ei löytynyt</target>
+      </trans-unit>
+      <trans-unit id="e229eb73a3f7315ac88419488c931459">
+        <source>Posti carrier deleted</source>
+        <target>Posti-kuljetusyritys poistettu</target>
+      </trans-unit>
+      <trans-unit id="8430a7b1b81635e3df949c2845303303">
+        <source>Carrier options</source>
+        <target>Kuljetusyrityksen asetukset</target>
+      </trans-unit>
+      <trans-unit id="c91e596246bbf8fdff9dae7b349d71d9">
+        <source>Carrier name</source>
+        <target>Kuljetusyrityksen nimi</target>
+      </trans-unit>
+      <trans-unit id="ce4f9ab39fa0d7a91b511cb1800a5bda">
+        <source>Posti service</source>
+        <target>Posti-palvelu</target>
+      </trans-unit>
+      <trans-unit id="4d3d769b812b6faa6b76e1a8abaece2d">
+        <source>Active</source>
+        <target>Aktiivinen</target>
+      </trans-unit>
+      <trans-unit id="653259191fe2ecafdf0e7c29f119b013">
+        <source>Supported Countries</source>
+        <target>Tuetut maat</target>
+      </trans-unit>
+      <trans-unit id="b718adec73e04ce3ec720dd11a06a308">
+        <source>ID</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="49ee3087348e8d44e1feda1917443987">
+        <source>Name</source>
+        <target>Nimi</target>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be">
+        <source>Status</source>
+        <target>Tila</target>
+      </trans-unit>
+      <trans-unit id="b205fe4a5fb6b3f10da81ac8ab47a692">
+        <source>Posti shipping</source>
+        <target>Posti-toimitus</target>
+      </trans-unit>
+      <trans-unit id="51b31c1930dd8b8d0dad1e9fecf4c8f2">
+        <source>HS tariff number</source>
+        <target>HS-tullinumero</target>
+      </trans-unit>
+      <trans-unit id="bec9c39f4b6813f72f29397727dcd5aa">
+        <source>Country of origin</source>
+        <target>Alkuperämaa</target>
+      </trans-unit>
+      <trans-unit id="6af1ddb32a1d743abbb5936508cba610">
+        <source>DG weight</source>
+        <target>Vaarallisten aineiden paino</target>
+      </trans-unit>
+      <trans-unit id="2b8710c37320c4d0647cd4dd2c7e7e0c">
+        <source>Shipping labels</source>
+        <target>Lähetystarrat</target>
+      </trans-unit>
+      <trans-unit id="24a23d787190f2c4812ff9ab11847a72">
+        <source>Status:</source>
+        <target>Tila:</target>
+      </trans-unit>
+      <trans-unit id="88183b946cc5f0e8c96b2e66e1c74a7e">
+        <source>Unknown</source>
+        <target>Tuntematon</target>
+      </trans-unit>
+      <trans-unit id="e5373d11177f617a8fab79e0c25602b7">
+        <source>Return labels</source>
+        <target>Palautustarrat</target>
+      </trans-unit>
+      <trans-unit id="47202e3457162350cffdb346f3ca5e2d">
+        <source>Create return label</source>
+        <target>Luo palautustarra</target>
+      </trans-unit>
+      <trans-unit id="083901c12b995fef6cd4af4031daebfa">
+        <source>Default Registration</source>
+        <target>Oletusrekisteröinti</target>
+      </trans-unit>
+      <trans-unit id="96916cdd62b6adfce0a6b8dff9e1942b">
+        <source>Service:</source>
+        <target>Palvelu:</target>
+      </trans-unit>
+      <trans-unit id="9ba80e841a09e7d236107168857435a9">
+        <source>Pickup Point:</source>
+        <target>Noutopiste:</target>
+      </trans-unit>
+      <trans-unit id="84bbe00db4502a224d278b9bfa03f21f">
+        <source>Additional services:</source>
+        <target>Lisäpalvelut:</target>
+      </trans-unit>
+      <trans-unit id="3fb2f52cac60d65bc10ad4fae709ef04">
+        <source>Carrier defaults</source>
+        <target>Kuljetusyrityksen oletukset</target>
+      </trans-unit>
+      <trans-unit id="7ee660a19f4da70a992bc6b43184c3c6">
+        <source>Custom Registration</source>
+        <target>Mukautettu rekisteröinti</target>
+      </trans-unit>
+      <trans-unit id="359df914cbcfa8069c8efce34f40b71c">
+        <source>Posti Service:</source>
+        <target>Posti-palvelu:</target>
+      </trans-unit>
+      <trans-unit id="8b03b2304004e38934d104b2bc665cdd">
+        <source>Load all services</source>
+        <target>Lataa kaikki palvelut</target>
+      </trans-unit>
+      <trans-unit id="38c183edf4751f8696030296fe652fe6">
+        <source>Current posti service appears to not have additional services</source>
+        <target>Nykyisellä Posti-palvelulla ei näytä olevan lisäpalveluita</target>
+      </trans-unit>
+      <trans-unit id="bd31e25a27c3d92361081180a92c4624">
+        <source>Shipment products:</source>
+        <target>Lähetyksen tuotteet:</target>
+      </trans-unit>
+      <trans-unit id="048bd0ff3a84fdbb0bc2255433cfc6ea">
+        <source>Set quantity to 0 to exclude a product. Changes apply directly when registering.</source>
+        <target>Aseta määräksi 0 jättääksesi tuotteen pois. Muutokset astuvat voimaan rekisteröitäessä.</target>
+      </trans-unit>
+      <trans-unit id="2bf1d5fae1c321d594fdedf05058f709">
+        <source>Address:</source>
+        <target>Osoite:</target>
+      </trans-unit>
+      <trans-unit id="13348442cc6a27032d2b4aa28b75a5d3">
+        <source>Search</source>
+        <target>Hae</target>
+      </trans-unit>
+      <trans-unit id="b790a9af4a614080abdf3180cf8f729e">
+        <source>Custom shipping...</source>
+        <target>Mukautettu toimitus...</target>
+      </trans-unit>
+      <trans-unit id="329b4148d311245d8453d7d53209fba1">
+        <source>Original shipping...</source>
+        <target>Alkuperäinen toimitus...</target>
+      </trans-unit>
+      <trans-unit id="85784549f6a7db3e265e1439f52e7657">
+        <source>No additional services</source>
+        <target>Ei lisäpalveluita</target>
+      </trans-unit>
+      <trans-unit id="6e04e3f954afc61bc93bd468bcbcaa13">
+        <source>Not selected</source>
+        <target>Ei valittu</target>
+      </trans-unit>
+      <trans-unit id="165977bc8006193936272e96ef4fd7a2">
+        <source>Print label</source>
+        <target>Tulosta tarra</target>
+      </trans-unit>
+      <trans-unit id="396d29b5d6f7f5161ecd5891b955b5a7">
+        <source>To pickup</source>
+        <target>Noutoon</target>
+      </trans-unit>
+      <trans-unit id="63a6a88c066880c5ac42394a22803ca6">
+        <source>Refresh</source>
+        <target>Päivitä</target>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18">
+        <source>Delete</source>
+        <target>Poista</target>
+      </trans-unit>
+      <trans-unit id="06933067aafd48425d67bcb01bba5cb6">
+        <source>Update</source>
+        <target>Päivitä</target>
+      </trans-unit>
+      <trans-unit id="ea4788705e6873b424c65e91c2846b19">
+        <source>Cancel</source>
+        <target>Peruuta</target>
+      </trans-unit>
+      <trans-unit id="f4ec5f57bd4d31b803312d873be40da9">
+        <source>Change</source>
+        <target>Vaihda</target>
+      </trans-unit>
+      <trans-unit id="deb10517653c255364175796ace3553f">
+        <source>Product</source>
+        <target>Tuote</target>
+      </trans-unit>
+      <trans-unit id="63d5049791d9d79d86e9a108b0a999ca">
+        <source>Reference</source>
+        <target>Viite</target>
+      </trans-unit>
+      <trans-unit id="694e8d1f2ee056f98ee488bdc4982d73">
+        <source>Quantity</source>
+        <target>Määrä</target>
+      </trans-unit>
+      <trans-unit id="b78a3223503896721cca1303f776159b">
+        <source>Title</source>
+        <target>Otsikko</target>
+      </trans-unit>
+      <trans-unit id="7442e29d7d53e549b78d93c46b8cdcfc">
+        <source>Orders</source>
+        <target>Tilaukset</target>
+      </trans-unit>
+      <trans-unit id="06df33001c1d7187fdd81ea1f5b277aa">
+        <source>Actions</source>
+        <target>Toiminnot</target>
+      </trans-unit>
+      <trans-unit id="44749712dbec183e983dcd78a7736c41">
+        <source>Date</source>
+        <target>Päivämäärä</target>
+      </trans-unit>
+      <trans-unit id="5da618e8e4b89c66fe86e32cdafde142">
+        <source>From</source>
+        <target>Alkaen</target>
+      </trans-unit>
+      <trans-unit id="e12167aa0a7698e6ebc92b4ce3909b53">
+        <source>To</source>
+        <target>Asti</target>
+      </trans-unit>
+      <trans-unit id="526d688f37a86d3c3f27d0c5016eb71d">
+        <source>Reset</source>
+        <target>Tyhjennä</target>
+      </trans-unit>
+      <trans-unit id="a4d3b161ce1309df1c4e25df28694b7b">
+        <source>Submit</source>
+        <target>Lähetä</target>
+      </trans-unit>
+      <trans-unit id="fcaa5b5e292ebe863b89e013d426616a">
+        <source>Refresh order page</source>
+        <target>Päivitä tilaussivu</target>
+      </trans-unit>
+      <trans-unit id="72d1bb44bb03a7b420f5bcf6acd065f2">
+        <source>Already registered! Registered information will be lost. Continue?</source>
+        <target>Jo rekisteröity! Rekisteröidyt tiedot menetetään. Jatketaanko?</target>
+      </trans-unit>
+      <trans-unit id="7c2770c8a2f06634b8f77a351c201486">
+        <source>Are you sure you want to delete this label?</source>
+        <target>Haluatko varmasti poistaa tämän tarran?</target>
+      </trans-unit>
+      <trans-unit id="8c8e9e75413139fb66cdaefee8a68d83">
+        <source>Are you sure you want to delete this return label?</source>
+        <target>Haluatko varmasti poistaa tämän palautustarran?</target>
+      </trans-unit>
+      <trans-unit id="9fed254b6520d319a19162a5ab91958e">
+        <source>Page will be refreshed in {seconds}s... Or you can refresh manually.</source>
+        <target>Sivu päivitetään {seconds} sekunnin kuluttua... Tai voit päivittää manuaalisesti.</target>
+      </trans-unit>
+      <trans-unit id="f9026f7d24d600b0f0b5597ac4d3f61c">
+        <source>Additional services will be available after saving</source>
+        <target>Lisäpalvelut ovat käytettävissä tallennuksen jälkeen</target>
+      </trans-unit>
+      <trans-unit id="a47500bb69234673eb0b04e3cef478e8">
+        <source>Something went wrong while trying to get Pickup Points</source>
+        <target>Noutopisteiden haussa tapahtui virhe</target>
+      </trans-unit>
+      <trans-unit id="f6be36c2c1da1a38d6d458b314936606">
+        <source>Something went wrong while trying to save order data</source>
+        <target>Tilaustietojen tallennuksessa tapahtui virhe</target>
+      </trans-unit>
+      <trans-unit id="a901c646eacc74f7ee909ac595ea528a">
+        <source>Shipment must contain at least one product unit</source>
+        <target>Lähetyksessä on oltava vähintään yksi tuoteyksikkö</target>
+      </trans-unit>
+      <trans-unit id="b0dd3cddb604cfec2ab94e8f2b383ac6">
+        <source>Something went wrong while trying register: %reason%</source>
+        <target>Rekisteröinnissä tapahtui virhe: %reason%</target>
+      </trans-unit>
+      <trans-unit id="fbf38be57895790c1b0cc089cefc6332">
+        <source>Failed to load available services</source>
+        <target>Saatavilla olevien palveluiden lataus epäonnistui</target>
+      </trans-unit>
+      <trans-unit id="9ccdac99a7e10c41f905fc6530533499">
+        <source>Something went wrong while trying to print label: %reason%</source>
+        <target>Tarran tulostuksessa tapahtui virhe: %reason%</target>
+      </trans-unit>
+      <trans-unit id="d066aa78f655150afb360025d987d466">
+        <source>Something went wrong while trying to delete label: %reason%</source>
+        <target>Tarran poistossa tapahtui virhe: %reason%</target>
+      </trans-unit>
+      <trans-unit id="6f933b7efd963025154c1ae4c686a3c0">
+        <source>Something went wrong while trying to register return label: %reason%</source>
+        <target>Palautustarran rekisteröinnissä tapahtui virhe: %reason%</target>
+      </trans-unit>
+      <trans-unit id="c9f0d8fc297875b991ff6a7ea1372b96">
+        <source>Something went wrong while trying to delete return label: %reason%</source>
+        <target>Palautustarran poistossa tapahtui virhe: %reason%</target>
+      </trans-unit>
+      <trans-unit id="b73ae093673d097fd8eb672cf313c72e">
+        <source>Something went wrong while trying to refresh label: %reason%</source>
+        <target>Tarran päivityksessä tapahtui virhe: %reason%</target>
+      </trans-unit>
+      <trans-unit id="9ab151d08761dddce545021f63ee6a1c">
+        <source>Something went wrong while trying to add to pickup: %reason%</source>
+        <target>Noutoon lisäyksessä tapahtui virhe: %reason%</target>
+      </trans-unit>
+      <trans-unit id="c2f66eee0726728d46616b087904b96e">
+        <source>Unknown module action</source>
+        <target>Tuntematon moduulin toiminto</target>
+      </trans-unit>
+      <trans-unit id="897b2be6147e80d7c2ca8e3a479a9e0e">
+        <source>Changes saved</source>
+        <target>Muutokset tallennettu</target>
+      </trans-unit>
+      <trans-unit id="d17c1a543ce09a2a7c29870b0a5d8a76">
+        <source>No changes found</source>
+        <target>Muutoksia ei löytynyt</target>
+      </trans-unit>
+      <trans-unit id="24909e87dc242b9dd539e10609b8b050">
+        <source>Order not found</source>
+        <target>Tilausta ei löytynyt</target>
+      </trans-unit>
+      <trans-unit id="93e66cae9296af745d985eb5160fec31">
+        <source>Failed to register: %reason%</source>
+        <target>Rekisteröinti epäonnistui: %reason%</target>
+      </trans-unit>
+      <trans-unit id="e020ef453318f5b32380aad47a2bdabd">
+        <source>Registered! Reference: %reference% | Tracking code: %tracking%</source>
+        <target>Rekisteröity! Viite: %reference% | Seurantakoodi: %tracking%</target>
+      </trans-unit>
+      <trans-unit id="d8e388954f527478a5c68192443d7c9c">
+        <source>Missing tracking code</source>
+        <target>Seurantakoodi puuttuu</target>
+      </trans-unit>
+      <trans-unit id="4a906db98b796f4133d3f4daab8c95dc">
+        <source>Failed to get labels: %reason%</source>
+        <target>Tarrojen haku epäonnistui: %reason%</target>
+      </trans-unit>
+      <trans-unit id="ed8eee5ea1afe99b8276a5e6f42f9001">
+        <source>Cart meta not found</source>
+        <target>Ostoskorin metatietoja ei löytynyt</target>
+      </trans-unit>
+      <trans-unit id="b94f9410e8a11c93238ca2578ad3370b">
+        <source>Label deleted</source>
+        <target>Tarra poistettu</target>
+      </trans-unit>
+      <trans-unit id="45527532e6ddf1f70d507b918cd684a1">
+        <source>Cannot create return label when no shipping labels exist</source>
+        <target>Palautustarraa ei voi luoda, kun lähetystarroja ei ole</target>
+      </trans-unit>
+      <trans-unit id="659e164e0c9220848124f10bb87723ce">
+        <source>Unable to create return label for this shipment type (%serviceId%)</source>
+        <target>Palautustarraa ei voi luoda tälle lähetystyypille (%serviceId%)</target>
+      </trans-unit>
+      <trans-unit id="c0f29aa793a5265953450e55c1206c6d">
+        <source>Failed to register return label: %reason%</source>
+        <target>Palautustarran rekisteröinti epäonnistui: %reason%</target>
+      </trans-unit>
+      <trans-unit id="73b4729daea6f4c1533a82616141bcff">
+        <source>Return label registered! Reference: %reference% | Tracking code: %tracking%</source>
+        <target>Palautustarra rekisteröity! Viite: %reference% | Seurantakoodi: %tracking%</target>
+      </trans-unit>
+      <trans-unit id="de2dabf68774ee5709ed00bdb142917d">
+        <source>Return label deleted</source>
+        <target>Palautustarra poistettu</target>
+      </trans-unit>
+      <trans-unit id="c073b724ae66a5d0414a062f2599e9d7">
+        <source>Status updated</source>
+        <target>Tila päivitetty</target>
+      </trans-unit>
+      <trans-unit id="bc06d0044ca4a211e85b834b75ef8351">
+        <source>Label %tracking% added to pickup manifest #%manifest_id%</source>
+        <target>Tarra %tracking% lisätty noutomanifestiin #%manifest_id%</target>
+      </trans-unit>
+      <trans-unit id="180ef6dd5aee210e5aea360efa88d62a">
+        <source>No orders selected</source>
+        <target>Tilauksia ei ole valittu</target>
+      </trans-unit>
+      <trans-unit id="cd329275312a471cf024a9299d07acab">
+        <source>No valid orders selected</source>
+        <target>Kelvollisia tilauksia ei ole valittu</target>
+      </trans-unit>
+      <trans-unit id="2eafcb977877abfd35f388f0975d5d11">
+        <source>Unknown bulk action</source>
+        <target>Tuntematon joukkotoiminto</target>
+      </trans-unit>
+      <trans-unit id="a245f6281d666337eb64b60ff677e352">
+        <source>Order #%id% not found</source>
+        <target>Tilausta #%id% ei löytynyt</target>
+      </trans-unit>
+      <trans-unit id="5392fcd28fd2448611f57ec69e8d0519">
+        <source>Order #%id% (cart %cart_id%): not a Posti shipment</source>
+        <target>Tilaus #%id% (ostoskori %cart_id%): ei Posti-lähetys</target>
+      </trans-unit>
+      <trans-unit id="944a9c8275049b0ce2492ce36759d50d">
+        <source>Order #%id%: failed to register - %reason%</source>
+        <target>Tilaus #%id%: rekisteröinti epäonnistui – %reason%</target>
+      </trans-unit>
+      <trans-unit id="2c9b3d73edf36c81c3a33071614b4041">
+        <source>Order #%id%: no registered labels</source>
+        <target>Tilaus #%id%: ei rekisteröityjä tarroja</target>
+      </trans-unit>
+      <trans-unit id="8a09aceba985f944fa840c17782a6076">
+        <source>No shipping labels to fetch</source>
+        <target>Ladattavia lähetystarroja ei ole</target>
+      </trans-unit>
+      <trans-unit id="963fc8fc17a09f5079bf8242f4bae5f7">
+        <source>Failed to fetch labels: %reason%</source>
+        <target>Tarrojen haku epäonnistui: %reason%</target>
+      </trans-unit>
+      <trans-unit id="0e4253d068d2dd7f914a9ba0edfd3ecc">
+        <source>Successfully registered %count% labels.</source>
+        <target>Rekisteröitiin onnistuneesti %count% tarraa.</target>
+      </trans-unit>
+      <trans-unit id="4b584d99a383084b07e4b9953a995fe7">
+        <source>Failed to register some labels (%count%).</source>
+        <target>Osa tarroista ei rekisteröitynyt (%count%).</target>
+      </trans-unit>
+      <trans-unit id="4d91e8b84fecc0ec47c6f45d1cbc59e5">
+        <source>Pickup orders</source>
+        <target>Noutotilaukset</target>
+      </trans-unit>
+      <trans-unit id="0b4a3e018bd2c7edee76d5c19ad79612">
+        <source>Order / Label code</source>
+        <target>Tilaus- / tarrakoodi</target>
+      </trans-unit>
+      <trans-unit id="7d293ef39ff39e0b2a2eae7978c33f04">
+        <source>Order # or tracking</source>
+        <target>Tilausnumero tai seurantakoodi</target>
+      </trans-unit>
+      <trans-unit id="ecde22c9c146e5c9508c68a4eb75070e">
+        <source>-- All --</source>
+        <target>-- Kaikki --</target>
+      </trans-unit>
+      <trans-unit id="c3bf447eabe632720a3aa1a7ce401274">
+        <source>Open</source>
+        <target>Avoin</target>
+      </trans-unit>
+      <trans-unit id="03f4a47830f97377a35321051685071e">
+        <source>Closed</source>
+        <target>Suljettu</target>
+      </trans-unit>
+      <trans-unit id="0e22fe7d45f8e5632a4abf369b24e29c">
+        <source>Canceled</source>
+        <target>Peruutettu</target>
+      </trans-unit>
+      <trans-unit id="73f3e7512043f3e1ff3cf3b4767b7b37">
+        <source>Pickup time</source>
+        <target>Noutoaika</target>
+      </trans-unit>
+      <trans-unit id="a96a1767b0d4e4950441d6f80065ee00">
+        <source>No pickup orders found. Labels can be added to pickup from order view.</source>
+        <target>Noutotilauksia ei löytynyt. Tarroja voi lisätä noutoon tilausnäkymästä.</target>
+      </trans-unit>
+      <trans-unit id="a85a5737a1709e15502739c14cd14b0a">
+        <source>Place pickup order</source>
+        <target>Tee noutotilaus</target>
+      </trans-unit>
+      <trans-unit id="81fab85d6eff6d78a3da337e62a8429f">
+        <source>Cancel pickup order</source>
+        <target>Peruuta noutotilaus</target>
+      </trans-unit>
+      <trans-unit id="c3185a8bc3cbae193b5d1b06252f70ca">
+        <source>No labels assigned</source>
+        <target>Tarroja ei ole kohdistettu</target>
+      </trans-unit>
+      <trans-unit id="a6f8bd079059e69a896ad7c8861f3089">
+        <source>Pickup order placed</source>
+        <target>Noutotilaus tehty</target>
+      </trans-unit>
+      <trans-unit id="b77383aa1fdb1ed850dda9f28903dec2">
+        <source>Pickup order canceled by %name%</source>
+        <target>Noutotilauksen peruutti %name%</target>
+      </trans-unit>
+      <trans-unit id="aaaa3c0a0086a0eedaf3350d3cfe92c1">
+        <source>Items per page</source>
+        <target>Kohteita per sivu</target>
+      </trans-unit>
+      <trans-unit id="5f867d34df66f32184fb33a896981fbc">
+        <source>Earliest time</source>
+        <target>Aikaisin aika</target>
+      </trans-unit>
+      <trans-unit id="c546802d44a719298b824dcda58ff66e">
+        <source>Latest time</source>
+        <target>Myöhäisin aika</target>
+      </trans-unit>
+      <trans-unit id="0f68b904e33d9ac04605aecc958bcf52">
+        <source>Additional information</source>
+        <target>Lisätiedot</target>
+      </trans-unit>
+      <trans-unit id="4a2f5c8a04cc978f1803fe9b68833463">
+        <source>Please fill in all required fields</source>
+        <target>Täytä kaikki pakolliset kentät</target>
+      </trans-unit>
+      <trans-unit id="12f94f3c5746cda0417b4c1428dd8605">
+        <source>Earliest time cannot be in the past</source>
+        <target>Aikaisin aika ei voi olla menneisyydessä</target>
+      </trans-unit>
+      <trans-unit id="21d104a54fc71a19a325c7305327f1d2">
+        <source>Processing...</source>
+        <target>Käsitellään...</target>
+      </trans-unit>
+      <trans-unit id="09d85c6a08ed14dba6e787f6ec4fa5ae">
+        <source>Are you sure you want to cancel this pickup order?</source>
+        <target>Haluatko varmasti peruuttaa tämän noutotilauksen?</target>
+      </trans-unit>
+      <trans-unit id="56dde2a7781331e3334d42e495ed4f59">
+        <source>Showing %from%-%to% of %total%</source>
+        <target>Näytetään %from%–%to% / %total%</target>
+      </trans-unit>
+      <trans-unit id="27cae6aafaac83e947ace24ca7a3beb9">
+        <source>Something went wrong while placing pickup order: %reason%</source>
+        <target>Noutotilauksen tekemisessä tapahtui virhe: %reason%</target>
+      </trans-unit>
+      <trans-unit id="083934bf8db78a5c1d24e023df40053d">
+        <source>Something went wrong while canceling pickup order: %reason%</source>
+        <target>Noutotilauksen peruutuksessa tapahtui virhe: %reason%</target>
+      </trans-unit>
+      <trans-unit id="c4dfd06a23babe1bbf3e180eb2f2d7a8">
+        <source>Unknown action</source>
+        <target>Tuntematon toiminto</target>
+      </trans-unit>
+      <trans-unit id="bd4f60570f63e6db867d8ff87c7781b4">
+        <source>Date and time fields are required</source>
+        <target>Päivämäärä- ja aikakentät ovat pakollisia</target>
+      </trans-unit>
+      <trans-unit id="adc58f1d615417a70417cd447f17ea91">
+        <source>Invalid date format</source>
+        <target>Virheellinen päivämäärämuoto</target>
+      </trans-unit>
+      <trans-unit id="81401a9b7997c5f660a13af66cd31550">
+        <source>Date cannot be in the past</source>
+        <target>Päivämäärä ei voi olla menneisyydessä</target>
+      </trans-unit>
+      <trans-unit id="8fd03b6cd0cec59cde38dbef63031e63">
+        <source>Invalid time format</source>
+        <target>Virheellinen aikamuoto</target>
+      </trans-unit>
+      <trans-unit id="e95228d70217dd70ccb00828af1da5c9">
+        <source>Latest time must be after earliest time</source>
+        <target>Myöhäisimmän ajan on oltava aikaisimman ajan jälkeen</target>
+      </trans-unit>
+      <trans-unit id="199472593cf3dad34d427b06f5d28ecf">
+        <source>Manifest not found</source>
+        <target>Manifestia ei löytynyt</target>
+      </trans-unit>
+      <trans-unit id="85e8c1d443d9050d02231fa086f557ee">
+        <source>Manifest is not open</source>
+        <target>Manifesti ei ole avoin</target>
+      </trans-unit>
+      <trans-unit id="ab9dff65029e2c0c58966a311272d2f5">
+        <source>Manifest has no labels</source>
+        <target>Manifestissa ei ole tarroja</target>
+      </trans-unit>
+      <trans-unit id="17fde1ed6de77ef85b50126893562312">
+        <source>Pickup order placed successfully</source>
+        <target>Noutotilaus tehty onnistuneesti</target>
+      </trans-unit>
+      <trans-unit id="29a9823a1365f3a08eeb5f7eacb20f72">
+        <source>Pickup order canceled successfully</source>
+        <target>Noutotilaus peruutettu onnistuneesti</target>
+      </trans-unit>
+      <trans-unit id="c3e2202373c8ef475439f5cc3b8393a7">
+        <source>Pickup order failed: %reason%</source>
+        <target>Noutotilaus epäonnistui: %reason%</target>
+      </trans-unit>
+      <trans-unit id="0ba7583639a274c434bbe6ef797115a4">
+        <source>Register</source>
+        <target>Rekisteröi</target>
+      </trans-unit>
+      <trans-unit id="686e697538050e4664636337cc3b834f">
+        <source>Create</source>
+        <target>Luo</target>
+      </trans-unit>
+      <trans-unit id="62d47c9ce0d7e3a41fb20ab5e723f0b8">
+        <source>%s must contain only letters and digits</source>
+        <target>%s saa sisältää vain kirjaimia ja numeroita</target>
+      </trans-unit>
+      <trans-unit id="46b304d9fef9b1bb3ad44108dab4866c">
+        <source>The HS tariff number must be based on the Harmonized Commodity Description and Coding System developed by the World Customs Organization.</source>
+        <target>HS-tariffinumeron on perustuttava Maailman tullijärjestön kehittämään yhtenäistettyyn tavaran kuvaus- ja koodausjärjestelmään.</target>
+      </trans-unit>
+      <trans-unit id="47a141f1dd927ede53dbb14fabb1a01d">
+        <source>The country where the goods originated, e.g. were produced/manufactured or assembled.</source>
+        <target>Maa, jossa tavarat valmistettiin tai koottiin.</target>
+      </trans-unit>
+      <trans-unit id="fd68b883b643a49fd4d30b1dce36631d">
+        <source>Amount of hazardous substances in the product as grams.</source>
+        <target>Tuotteen vaarallisten aineiden määrä grammoina.</target>
+      </trans-unit>
+      <trans-unit id="afe4034449c148d0aebbb8fcdebf6394">
+        <source>This section is added by the %module_name% module</source>
+        <target>Tämän osion on lisännyt %module_name% -moduuli</target>
+      </trans-unit>
+      <trans-unit id="fd15e595d1a338240fdb0d8da3893a1a">
+        <source>%count% label(s) added to pickup manifest #%manifest_id%</source>
+        <target>%count% tarra(t) lisätty noutomanifestiin #%manifest_id%</target>
+      </trans-unit>
+      <trans-unit id="07f2c7062c13872a61b29d7a8b4f3d21">
+        <source>%count% order(s) skipped (no registered labels)</source>
+        <target>%count% tilaus(ta) ohitettu (ei rekisteröityjä tarroja)</target>
+      </trans-unit>
+      <trans-unit id="a4b613b735dd8aa8a34ea26a03bca311">
+        <source>Order #%id%: %reason%</source>
+        <target>Tilaus #%id%: %reason%</target>
+      </trans-unit>
+      <trans-unit id="f3a1c2e8b7d94f5a6c0e1d2b3a4f5e6d">
+        <source>A new version %version% is available. Go to [1]module settings[/1] to update.</source>
+        <target>Uusi versio %version% on saatavilla. Siirry [1]moduulin asetuksiin[/1] päivittääksesi.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

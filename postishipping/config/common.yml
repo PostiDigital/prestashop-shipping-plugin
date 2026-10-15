@@ -1,0 +1,30 @@
+services:
+  _defaults:
+    public: true
+
+  postishipping.module.repository.carrier_repository:
+    class: Posti\PrestaShop\Postishipping\Repository\PostishippingCarrierRepository
+    arguments:
+      - '@doctrine'
+      - '@doctrine.dbal.default_connection'
+      - '%database_prefix%'
+  
+  Posti\PrestaShop\Postishipping\Repository\PostishippingCartMetaRepository:
+    class: Posti\PrestaShop\Postishipping\Repository\PostishippingCartMetaRepository
+    arguments:
+      - '@doctrine'
+      - '@doctrine.dbal.default_connection'
+      - '%database_prefix%'
+
+  postishipping.module.repository.cart_meta:
+    alias: Posti\PrestaShop\Postishipping\Repository\PostishippingCartMetaRepository
+
+  Posti\PrestaShop\Postishipping\Repository\PostishippingManifestRepository:
+    class: Posti\PrestaShop\Postishipping\Repository\PostishippingManifestRepository
+    arguments:
+      - '@doctrine'
+      - '@doctrine.dbal.default_connection'
+      - '%database_prefix%'
+
+  postishipping.module.repository.manifest:
+    alias: Posti\PrestaShop\Postishipping\Repository\PostishippingManifestRepository

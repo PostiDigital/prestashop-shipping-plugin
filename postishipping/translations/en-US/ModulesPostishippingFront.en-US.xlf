@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="en" datatype="plaintext" original="modules/postishipping">
+    <body>
+      <trans-unit id="8c7cf34fc429a71b11275c163f26ec1d">
+        <source>Filter by address</source>
+        <target>Filter by address</target>
+      </trans-unit>
+      <trans-unit id="fe43c5862ef5773ba70f6cfb0e3e4789">
+        <source>Find pickup points</source>
+        <target>Find pickup points</target>
+      </trans-unit>
+      <trans-unit id="1bc4c1d4fac929205d93df02fc79bf16">
+        <source>Selected pickup point</source>
+        <target>Selected pickup point</target>
+      </trans-unit>
+      <trans-unit id="3a95959ab6a0391c92dd60ec281c0f40">
+        <source>-- No pickup point: Send to the street address --</source>
+        <target>-- No pickup point: Send to the street address --</target>
+      </trans-unit>
+      <trans-unit id="9b63e6e27d45a85cd3cf8a7ea50bec41">
+        <source>Unfortunately there are no pickup points available, try searching different address</source>
+        <target>Unfortunately there are no pickup points available, try searching different address</target>
+      </trans-unit>
+      <trans-unit id="9d445da135e206a6ba57e8eafbab2615">
+        <source>Not a valid address search</source>
+        <target>Not a valid address search</target>
+      </trans-unit>
+      <trans-unit id="55a4bfd4f08163ae456b19eae3c2ade7">
+        <source>Invalid provider name</source>
+        <target>Invalid provider name</target>
+      </trans-unit>
+      <trans-unit id="b9f132d8943bc57491601a3c73e3e5bc">
+        <source>CartMeta not found</source>
+        <target>CartMeta not found</target>
+      </trans-unit>
+      <trans-unit id="d218b57c8a5fe2dbadafa8125b75ba69">
+        <source>Select a Pickup Point</source>
+        <target>Select a Pickup Point</target>
+      </trans-unit>
+      <trans-unit id="d7c99bd28e28be774edf9d5a922f9960">
+        <source>The pickup point you have chosen is a private locker. You will need a PIN code to access it. Do you want to continue?</source>
+        <target>The pickup point you have chosen is a private locker. You will need a PIN code to access it. Do you want to continue?</target>
+      </trans-unit>
+      <trans-unit id="d4fa366d4709c308000b0b90ecd1cec2">
+        <source>Id cart is not valid</source>
+        <target>Id cart is not valid</target>
+      </trans-unit>
+      <trans-unit id="4e5696a0792b88af51c46c4f67e59e18">
+        <source>Pickup point:</source>
+        <target>Pickup point:</target>
+      </trans-unit>
+      <trans-unit id="3fe89a60068f454bfddd87fe5654e8fa">
+        <source>Failed to find postishipping cart meta data</source>
+        <target>Failed to find postishipping cart meta data</target>
+      </trans-unit>
+      <trans-unit id="446b416d535ed3f547fcd653dc11d49c">
+        <source>Invalid request</source>
+        <target>Invalid request</target>
+      </trans-unit>
+      <trans-unit id="a47500bb69234673eb0b04e3cef478e8">
+        <source>Something went wrong while trying to get Pickup Points</source>
+        <target>Something went wrong while trying to get Pickup Points</target>
+      </trans-unit>
+      <trans-unit id="44cad029e77921821b29216e5d8fa081">
+        <source>Something went wrong while trying to clear Pickup Point</source>
+        <target>Something went wrong while trying to clear Pickup Point</target>
+      </trans-unit>
+      <trans-unit id="aea0875a05b0edf83207e85788a9ce8b">
+        <source>Something went wrong while trying to save Pickup Point</source>
+        <target>Something went wrong while trying to save Pickup Point</target>
+      </trans-unit>
+      <trans-unit id="db26e10564e958809d798e8048fcbc0a">
+        <source>Invalid security token</source>
+        <target>Invalid security token</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

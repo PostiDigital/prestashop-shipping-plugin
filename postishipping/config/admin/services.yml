@@ -1,0 +1,25 @@
+imports:
+  - { resource: ../common.yml }
+
+services:
+  _defaults:
+    public: true
+    autowire: true
+
+  PostiShipping:
+    class: PostiShipping
+    autowire: false
+
+  Posti\PrestaShop\Postishipping\Controller\PostiOrderController:
+    class: Posti\PrestaShop\Postishipping\Controller\PostiOrderController
+    autoconfigure: true
+
+  Posti\PrestaShop\Postishipping\Controller\PostiPickupsController:
+    class: Posti\PrestaShop\Postishipping\Controller\PostiPickupsController
+    autoconfigure: true
+
+  Posti\PrestaShop\Postishipping\Form\Type\PostiProductExtraType:
+    class: Posti\PrestaShop\Postishipping\Form\Type\PostiProductExtraType
+    public: true
+    tags:
+      - { name: form.type }

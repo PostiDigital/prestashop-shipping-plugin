@@ -1,0 +1,49 @@
+{
+    "name": "posti/prestashop-postishipping",
+    "description": "Posti shipping service for Prestashop",
+    "license": "GPL-3.0-or-later",
+    "homepage": "https://www.posti.fi",
+    "authors": [
+        {
+            "name": "Joose Vettenranta",
+            "email": "joose.vettenranta@posti.com",
+            "homepage": "https://github.com/joosev"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0",
+        "pakettikauppa/api-library": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Posti\\PrestaShop\\Postishipping\\": "src/"
+        },
+        "classmap": [
+            "postishipping.php",
+            "controllers"
+        ],
+        "files": [
+            "Compat/SimpleXMLElementCompat.php",
+            "Compat/AdminControllerCompat.php"
+        ]
+    },
+    "config": {
+        "prepend-autoloader": false,
+        "platform": {
+          "php": "7.4.0"
+        }
+    },
+    "type": "prestashop-module",
+    "require-dev": {
+        "prestashop/php-dev-tools": "^5.0",
+        "friendsofphp/php-cs-fixer": "^3.87",
+        "phpstan/phpstan": "^2.1",
+        "prestashop/header-stamp": "^2.6",
+        "prestashop/autoindex": "^2.1"
+    },
+    "scripts": {
+        "set-license-header": [
+            "@php ./vendor/bin/header-stamp --license=vendor/prestashop/header-stamp/assets/afl.txt --exclude=.github,node_modules,vendor,tests,_dev"
+        ]
+    }
+}

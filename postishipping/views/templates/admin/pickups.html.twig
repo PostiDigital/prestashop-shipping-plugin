@@ -1,0 +1,308 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+
+{% block content %}
+<div class="card posti-pstheme-{{ psThemeClass }}" id="postishipping-pickups">
+    <div class="card-header">
+        <h3 class="card-header-title">
+            <img src="{{ asset('../modules/postishipping/views/img/logo-dark.png') }}" alt="Posti logo" class="img-fluid" style="height: 24px; margin-right: 8px;">
+            {{ 'Pickup orders'|trans({}, 'Modules.Postishipping.Admin') }}
+        </h3>
+    </div>
+    <div class="card-body">
+        <div class="posti-pickups-errors alert alert-danger" style="display:none;">
+            <p class="m-0"></p>
+        </div>
+        <div class="posti-pickups-success alert alert-success" style="display:none;">
+            <p class="m-0"></p>
+        </div>
+
+        {# Filter form #}
+        <form method="GET" action="{{ path('postishipping_pickups') }}" class="mb-3 posti-pickups-filter">
+            <input type="hidden" name="_token" value="{{ app.request.get('_token') }}">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="filter_id">{{ 'ID'|trans({}, 'Modules.Postishipping.Admin') }}</label>
+                        <input type="number" class="form-control form-control-sm" id="filter_id" name="filter_id" value="{{ filters.id }}" placeholder="{{ 'ID'|trans({}, 'Modules.Postishipping.Admin') }}">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group mb-1">
+                        <label>{{ 'Title'|trans({}, 'Modules.Postishipping.Admin') }}</label>
+                        <input type="date" class="form-control form-control-sm" id="filter_title_from" name="filter_title_from" value="{{ filters.title_from }}" title="{{ 'From'|trans({}, 'Modules.Postishipping.Admin') }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control form-control-sm" id="filter_title_to" name="filter_title_to" value="{{ filters.title_to }}" title="{{ 'To'|trans({}, 'Modules.Postishipping.Admin') }}">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="filter_order_or_tracking">{{ 'Order / Label code'|trans({}, 'Modules.Postishipping.Admin') }}</label>
+                        <input type="text" class="form-control form-control-sm" id="filter_order_or_tracking" name="filter_order_or_tracking" value="{{ filters.order_or_tracking }}" placeholder="{{ 'Order # or tracking'|trans({}, 'Modules.Postishipping.Admin') }}">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="filter_status">{{ 'Status'|trans({}, 'Modules.Postishipping.Admin') }}</label>
+                        <select class="form-control form-control-sm" id="filter_status" name="filter_status">
+                            <option value="">{{ '-- All --'|trans({}, 'Modules.Postishipping.Admin') }}</option>
+                            <option value="open"{{ filters.status == 'open' ? ' selected' : '' }}>{{ 'Open'|trans({}, 'Modules.Postishipping.Admin') }}</option>
+                            <option value="closed"{{ filters.status == 'closed' ? ' selected' : '' }}>{{ 'Closed'|trans({}, 'Modules.Postishipping.Admin') }}</option>
+                            <option value="canceled"{{ filters.status == 'canceled' ? ' selected' : '' }}>{{ 'Canceled'|trans({}, 'Modules.Postishipping.Admin') }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group mb-1">
+                        <label>{{ 'Pickup time'|trans({}, 'Modules.Postishipping.Admin') }}</label>
+                        <input type="date" class="form-control form-control-sm" id="filter_pickup_from" name="filter_pickup_from" value="{{ filters.pickup_from }}" title="{{ 'From'|trans({}, 'Modules.Postishipping.Admin') }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control form-control-sm" id="filter_pickup_to" name="filter_pickup_to" value="{{ filters.pickup_to }}" title="{{ 'To'|trans({}, 'Modules.Postishipping.Admin') }}">
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center">
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-sm mb-1 d-block w-100">
+                            <i class="material-icons" style="font-size:14px;vertical-align:middle;">search</i>
+                            {{ 'Search'|trans({}, 'Modules.Postishipping.Admin') }}
+                        </button>
+                        <a href="{{ path('postishipping_pickups') }}" class="btn btn-outline-secondary btn-sm d-block w-100">
+                            <i class="material-icons" style="font-size:14px;vertical-align:middle;">clear</i>
+                            {{ 'Reset'|trans({}, 'Modules.Postishipping.Admin') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        {% if manifests|length == 0 %}
+            <div class="alert alert-info">
+                {{ 'No pickup orders found. Labels can be added to pickup from order view.'|trans({}, 'Modules.Postishipping.Admin') }}
+            </div>
+        {% else %}
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="posti-col-id">{{ 'ID'|trans({}, 'Modules.Postishipping.Admin') }}</th>
+                        <th>{{ 'Title'|trans({}, 'Modules.Postishipping.Admin') }}</th>
+                        <th class="posti-col-orders">{{ 'Orders'|trans({}, 'Modules.Postishipping.Admin') }}</th>
+                        <th class="posti-col-status">{{ 'Status'|trans({}, 'Modules.Postishipping.Admin') }}</th>
+                        <th>{{ 'Pickup time'|trans({}, 'Modules.Postishipping.Admin') }}</th>
+                        <th>{{ 'Actions'|trans({}, 'Modules.Postishipping.Admin') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for manifest in manifests %}
+                    <tr data-manifest-id="{{ manifest.getId() }}">
+                        <td class="posti-col-id">{{ manifest.getId() }}</td>
+                        <td>{{ manifest.getDateAdd()|date('Y-m-d H:i:s') }}</td>
+                        <td class="posti-col-orders">
+                            {% set grouped = manifest.getLabelsGroupedByOrder() %}
+                            {% if grouped|length > 0 %}
+                                {% for orderId, trackingCodes in grouped %}
+                                    <div class="mb-1">
+                                        <strong>
+                                            <a href="{{ path('admin_orders_view', {'orderId': orderId}) }}">
+                                                #{{ orderId }}
+                                            </a>
+                                        </strong>:
+                                        {% for tc in trackingCodes %}
+                                            {%- if tc in deletedTrackingCodes|keys -%}
+                                                <s title="{{ 'Label deleted'|trans({}, 'Modules.Postishipping.Admin') }}">{{ tc }}</s>
+                                            {%- else -%}
+                                                {{- tc -}}
+                                            {%- endif -%}
+                                            {%- if not loop.last %}, {% endif -%}
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td class="posti-col-status">
+                            {% if manifest.getStatus() == 'open' %}
+                                <span class="badge badge-success manifest-status">{{ 'Open'|trans({}, 'Modules.Postishipping.Admin') }}</span>
+                            {% elseif manifest.getStatus() == 'canceled' %}
+                                <span class="badge badge-danger manifest-status">{{ 'Canceled'|trans({}, 'Modules.Postishipping.Admin') }}</span>
+                            {% else %}
+                                <span class="badge badge-secondary manifest-status">{{ 'Closed'|trans({}, 'Modules.Postishipping.Admin') }}</span>
+                            {% endif %}
+                        </td>
+                        <td class="manifest-pickup-time">
+                            {% if manifest.getStatus() == 'canceled' %}
+                                -
+                            {% else %}
+                                {{ manifest.getPickupTime() ?: '-' }}
+                            {% endif %}
+                        </td>
+                        <td class="manifest-actions">
+                            {% if manifest.getStatus() == 'open' and manifest.getLabelsGroupedByOrder()|length > 0 %}
+                                <button type="button" class="btn btn-primary btn-sm" data-postishipping-place-pickup="{{ manifest.getId() }}" data-toggle="modal" data-target="#postishipping-pickup-modal">
+                                    {{ 'Place pickup order'|trans({}, 'Modules.Postishipping.Admin') }}
+                                </button>
+                                <button type="button" class="posti-btn-cancel" data-postishipping-cancel-pickup="{{ manifest.getId() }}" title="{{ 'Cancel pickup order'|trans({}, 'Modules.Postishipping.Admin') }}">
+                                    <i class="material-icons">clear</i>
+                                </button>
+                            {% elseif manifest.getStatus() == 'open' %}
+                                <span class="manifest-action-text">{{ 'No labels assigned'|trans({}, 'Modules.Postishipping.Admin') }}</span>
+                                <button type="button" class="posti-btn-cancel" data-postishipping-cancel-pickup="{{ manifest.getId() }}" title="{{ 'Cancel pickup order'|trans({}, 'Modules.Postishipping.Admin') }}">
+                                    <i class="material-icons">clear</i>
+                                </button>
+                            {% elseif manifest.getStatus() == 'closed' %}
+                                <span class="manifest-action-text">{{ 'Pickup order placed'|trans({}, 'Modules.Postishipping.Admin') }}</span>
+                            {% elseif manifest.getStatus() == 'canceled' %}
+                                <span class="manifest-action-text">{{ 'Pickup order canceled by %name%'|trans({'%name%': manifest.getCanceledBy()}, 'Modules.Postishipping.Admin') }}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {# Pagination #}
+        {% if pagination.totalItems > 0 %}
+        <div class="row align-items-center mt-3">
+            <div class="col-sm-4">
+                <span class="text-muted">
+                    {{ 'Showing %from%-%to% of %total%'|trans({
+                        '%from%': ((pagination.page - 1) * pagination.limit + 1),
+                        '%to%': min(pagination.page * pagination.limit, pagination.totalItems),
+                        '%total%': pagination.totalItems
+                    }, 'Modules.Postishipping.Admin') }}
+                </span>
+            </div>
+            <div class="col-sm-4 text-center">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-sm justify-content-center mb-0">
+                        {# Previous #}
+                        <li class="page-item{{ pagination.page <= 1 ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ path('postishipping_pickups', app.request.query.all|merge({'page': pagination.page - 1})) }}">
+                                <i class="material-icons" style="font-size:14px;vertical-align:middle;">chevron_left</i>
+                            </a>
+                        </li>
+
+                        {# Page numbers #}
+                        {% set pageStart = max(1, pagination.page - 2) %}
+                        {% set pageEnd = min(pagination.totalPages, pagination.page + 2) %}
+
+                        {% if pageStart > 1 %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path('postishipping_pickups', app.request.query.all|merge({'page': 1})) }}">1</a>
+                            </li>
+                            {% if pageStart > 2 %}
+                                <li class="page-item disabled"><span class="page-link">&hellip;</span></li>
+                            {% endif %}
+                        {% endif %}
+
+                        {% for p in pageStart..pageEnd %}
+                            <li class="page-item{{ p == pagination.page ? ' active' : '' }}">
+                                <a class="page-link" href="{{ path('postishipping_pickups', app.request.query.all|merge({'page': p})) }}">{{ p }}</a>
+                            </li>
+                        {% endfor %}
+
+                        {% if pageEnd < pagination.totalPages %}
+                            {% if pageEnd < pagination.totalPages - 1 %}
+                                <li class="page-item disabled"><span class="page-link">&hellip;</span></li>
+                            {% endif %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ path('postishipping_pickups', app.request.query.all|merge({'page': pagination.totalPages})) }}">{{ pagination.totalPages }}</a>
+                            </li>
+                        {% endif %}
+
+                        {# Next #}
+                        <li class="page-item{{ pagination.page >= pagination.totalPages ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ path('postishipping_pickups', app.request.query.all|merge({'page': pagination.page + 1})) }}">
+                                <i class="material-icons" style="font-size:14px;vertical-align:middle;">chevron_right</i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-4 text-right">
+                <form method="GET" action="{{ path('postishipping_pickups') }}" class="form-inline justify-content-end">
+                    {# Preserve current filters #}
+                    {% for key, value in app.request.query.all %}
+                        {% if key != 'limit' and key != 'page' %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <label class="mr-2 mb-0" for="pagination-limit">{{ 'Items per page'|trans({}, 'Modules.Postishipping.Admin') }}:</label>
+                    <select class="form-control form-control-sm" id="pagination-limit" name="limit" onchange="this.form.submit()">
+                        {% for option in pagination.limitOptions %}
+                            <option value="{{ option }}"{{ option == pagination.limit ? ' selected' : '' }}>{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{# Pickup Order Modal #}
+<div class="modal fade" id="postishipping-pickup-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ 'Place pickup order'|trans({}, 'Modules.Postishipping.Admin') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="pickup-manifest-id" value="">
+                <div class="form-group">
+                    <label for="pickup-date">{{ 'Date'|trans({}, 'Modules.Postishipping.Admin') }}</label>
+                    <input type="date" class="form-control" id="pickup-date" min="" required>
+                </div>
+                <div class="form-group">
+                    <label for="pickup-time-from">{{ 'Earliest time'|trans({}, 'Modules.Postishipping.Admin') }}</label>
+                    <input type="time" class="form-control" id="pickup-time-from" required>
+                </div>
+                <div class="form-group">
+                    <label for="pickup-time-to">{{ 'Latest time'|trans({}, 'Modules.Postishipping.Admin') }}</label>
+                    <input type="time" class="form-control" id="pickup-time-to" required>
+                </div>
+                <div class="form-group">
+                    <label for="pickup-additional-info">{{ 'Additional information'|trans({}, 'Modules.Postishipping.Admin') }}</label>
+                    <textarea class="form-control" id="pickup-additional-info" rows="3"></textarea>
+                </div>
+                <div class="pickup-modal-error alert alert-danger" style="display:none;">
+                    <p class="m-0"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                    {{ 'Cancel'|trans({}, 'Modules.Postishipping.Admin') }}
+                </button>
+                <button type="button" class="btn btn-primary" id="pickup-submit-btn">
+                    {{ 'Submit'|trans({}, 'Modules.Postishipping.Admin') }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" data-keepinline>
+var postiPickupsAjaxUrl = "{{ ajaxUrl }}";
+var postiPickupsTranslations = {
+    fillRequired: '{{ "Please fill in all required fields"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    timeInPast: '{{ "Earliest time cannot be in the past"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    timeAfter: '{{ "Latest time must be after earliest time"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    processing: '{{ "Processing..."|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    submit: '{{ "Submit"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    closed: '{{ "Closed"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    canceled: '{{ "Canceled"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    pickupPlaced: '{{ "Pickup order placed"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    pickupSuccess: '{{ "Pickup order placed successfully"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    cancelConfirm: '{{ "Are you sure you want to cancel this pickup order?"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    cancelSuccess: '{{ "Pickup order canceled successfully"|trans({}, "Modules.Postishipping.Admin")|e('js') }}',
+    canceledByText: '{{ "Pickup order canceled by %name%"|trans({}, "Modules.Postishipping.Admin")|e('js') }}'
+};
+</script>
+{% endblock %}

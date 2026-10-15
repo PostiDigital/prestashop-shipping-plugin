@@ -1,0 +1,33 @@
+postishipping_posti_order:
+  path: /postishipping/postiorder
+  methods: [GET, POST]
+  defaults:
+    _controller: 'Posti\PrestaShop\Postishipping\Controller\PostiOrderController::indexAction'
+    _legacy_controller: 'PostishippingPostiOrderController'
+    _legacy_link: 'PostishippingPostiOrderController'
+
+postishipping_pickups:
+  path: /postishipping/pickups
+  methods: [GET]
+  defaults:
+    _controller: 'Posti\PrestaShop\Postishipping\Controller\PostiPickupsController::indexAction'
+    _legacy_controller: 'AdminPostiShippingPickups'
+    _legacy_link: 'AdminPostiShippingPickups'
+
+postishipping_pickups_ajax:
+  path: /postishipping/pickups/ajax
+  methods: [POST]
+  defaults:
+    _controller: 'Posti\PrestaShop\Postishipping\Controller\PostiPickupsController::ajaxAction'
+    _legacy_controller: 'AdminPostiShippingPickups'
+    _legacy_link: 'AdminPostiShippingPickups'
+
+postishipping_bulk_action:
+  path: /postishipping/bulk/{action}
+  methods: [POST]
+  defaults:
+    _controller: 'Posti\PrestaShop\Postishipping\Controller\PostiOrderController::bulkAction'
+    _legacy_controller: 'PostishippingPostiOrderController'
+    _legacy_link: 'PostishippingPostiOrderController'
+  requirements:
+    action: 'createAndFetchLabels|createNewLabels|createCustomLabels|downloadAllLabels|addToPickup'
