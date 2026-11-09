@@ -38,6 +38,7 @@ class PostiApi
                 'posti_auth_url' => $authUrl ?: 'https://oauth.posti.com',
             ],
         ], $mode);
+        $this->client->setSenderSystemName('Prestashop');
     }
 
     private function saveCachedToken($data)
