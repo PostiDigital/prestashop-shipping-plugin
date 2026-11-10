@@ -25,7 +25,7 @@ This will generate `postishipping.zip` in the project root, excluding developmen
 
 ## Commit Messages
 
-Commits follow [Conventional Commits](https://www.conventionalcommits.org/): `<type>(<scope>): <description>`. The **Prepare release PR** workflow uses them to pick the next version and generate `CHANGELOG.md`.
+Commits follow [Conventional Commits](https://www.conventionalcommits.org/): `<type>(<scope>): <description>`. The **Change version and prepare release** workflow uses them to pick the next version and generate `CHANGELOG.md`.
 
 | Type | Release type | Changelog section |
 | ---- | ------------ | ----------------- |

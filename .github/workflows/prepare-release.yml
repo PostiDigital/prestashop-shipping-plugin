@@ -1,15 +1,16 @@
-name: Prepare release PR
+name: Change version and prepare release
 
-# Creates a release/vX.Y.Z branch from develop that bumps the module version in
-# postishipping.php and adds a CHANGELOG.md section generated from the commits
-# since the last release tag, then opens a PR into develop.
+# Bumps the module version in postishipping.php and adds a CHANGELOG.md section
+# generated from the commits since the last release tag, commits it directly to
+# develop and opens (or updates) a PR from develop into main.
 #
 # Leave "version" empty to calculate it from the commits (Conventional Commits:
 # feat -> minor, fix/other -> patch, "type!:" or "BREAKING CHANGE" -> major),
 # or force a bump type / enter an exact version.
 #
 # Requires: Settings -> Actions -> General -> "Allow GitHub Actions to create
-# and approve pull requests" to be enabled.
+# and approve pull requests" to be enabled, and develop must allow pushes from
+# GitHub Actions (no branch protection blocking it).
 
 on:
   workflow_dispatch:
@@ -49,38 +50,35 @@ jobs:
           INPUT_BUMP: ${{ inputs.bump }}
         run: bash .github/scripts/prepare-release.sh "$INPUT_VERSION" "$INPUT_BUMP"
 
-      - name: Commit, push and open PR
+      - name: Commit to develop and open PR into main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: ${{ steps.prep.outputs.version }}
           LAST_TAG: ${{ steps.prep.outputs.last_tag }}
         run: |
-          BRANCH="release/v$VERSION"
-          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null; then
-            echo "::error::Branch $BRANCH already exists. Merge or delete it first."
-            exit 1
-          fi
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -c "$BRANCH"
           git add postishipping/postishipping.php postishipping/CHANGELOG.md
           git commit -m "chore(release): v$VERSION"
-          git push origin "$BRANCH"
+          git push origin HEAD:develop
 
           {
-            echo "Bumps the module version to **$VERSION** (previous release: ${LAST_TAG:-none})."
+            echo "Release **v$VERSION** (previous release: ${LAST_TAG:-none})."
             echo
             echo "### CHANGELOG.md"
             echo
             cat release-notes.md
             echo
             echo "---"
-            echo "Review/edit the changelog in this PR if needed. After merging, merge develop into main and run **Deploy tag and release**."
+            echo "To change the changelog, push a fix to develop. After merging, run **Deploy tag and release**."
           } > pr-body.md
 
-          gh pr create --base develop --head "$BRANCH" \
-            --title "Release v$VERSION" --body-file pr-body.md
+          PR=$(gh pr list --base main --head develop --state open --json number --jq '.[0].number // empty')
+          if [ -n "$PR" ]; then
+            gh pr edit "$PR" --title "Release v$VERSION" --body-file pr-body.md
+          else
+            gh pr create --base main --head develop --title "Release v$VERSION" --body-file pr-body.md
+          fi
 
           {
             echo "## Release v$VERSION prepared"
